@@ -1,0 +1,129 @@
+/*
+样式重点解析:
+
+1.'message'
+
+2.'message-' + type:
+    2.1:message-success
+    2.2:message-warning
+    2.3:message-error
+    
+3.'is-center' //决定了弹框居中显示
+
+4.'message-fade-enter' //4和5决定了弹框的的过渡效果
+
+5.'message-fade-leave-active'
+
+6. .message {
+		top:20px; //决定了弹框的偏移量
+	}
+*/
+.message {
+  min-width: 380px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ebeef5;
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  z-index: 9999999;
+  transform: translateX(-50%);
+  background-color: #edf2fc;
+  transition: opacity 0.3s, transform 0.4s, top 0.4s;
+  overflow: hidden;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.message.is-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.message p {
+  margin: 0;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+
+.message-info .message-content {
+  color: #909399;
+}
+
+.message-success {
+  background-color: #f0f9eb;
+  border-color: #e1f3d8;
+}
+
+.message-success .message-content {
+  color: #67c23a;
+}
+
+.message-warning {
+  background-color: #fdf6ec;
+  border-color: #faecd8;
+}
+
+.message-warning .message-content {
+  color: #e6a23c;
+}
+
+.message-error {
+  background-color: #fef0f0;
+  border-color: #fde2e2;
+}
+
+.message-error .message-content {
+  color: #f56c6c;
+}
+
+.message-content {
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.message-content:focus {
+  outline-width: 0;
+}
+
+.message .icon-close {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #c0c4cc;
+  font-size: 16px;
+}
+
+.message .icon-close:focus {
+  outline-width: 0;
+}
+
+.message .icon-close:hover {
+  color: #909399;
+}
+
+.message-fade-enter-from,
+.message-fade-leave-to {
+  opacity: 0;
+  /* transform: translate(-50%, -100%); */
+}
+
+.message-fade-enter-to,
+.message-fade-leave-from {
+  opacity: 1;
+  transform: translate(-50%, -100%);
+}

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
+// import HomeView from "../views/HomeView.vue";
 
 Vue.use(VueRouter);
 
@@ -8,7 +8,9 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    // component: HomeView,
+    component: () =>
+      import(/* webpackChunkName: "home" */ "../views/HomeView.vue"),
   },
   {
     path: "/about",
@@ -18,6 +20,18 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  },
+  {
+    path: "/demo",
+    name: "demo",
+    component: () =>
+      import(/* webpackChunkName: "demo" */ "../views/DemoView.vue"),
+  },
+  {
+    path: "/tree",
+    name: "tree",
+    component: () =>
+      import(/* webpackChunkName: "tree" */ "../views/TreeView.vue"),
   },
 ];
 
